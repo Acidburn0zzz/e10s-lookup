@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Recommended migration paths for Firefox Add-ons</title>
+    <title>Firefox Add-on Migration Lookup</title>
   </head>
   <body>
     <div class="container">
@@ -13,9 +13,9 @@
         <p>Requires Firefox, Chrome or Opera. Because it uses <a href="https://developer.mozilla.org/en-US/docs/Web/API/TextEncoder/encode">TextEncoder</a>.</p>
       </div>
 
-<p><a href="https://developer.mozilla.org/en-US/Add-ons/WebExtensions" target="_blank">WebExtensions</a> are becoming the standard for add-on development in Firefox. At the same time, <a href="https://developer.mozilla.org/en-US/Add-ons/Working_with_multiprocess_Firefox" target="_blank">multiprocess Firefox</a> (aka Electrolysis, or e10s) is also rolling out. These changes impact developers of XUL/XPCOM and SDK add-ons (some more than others).</p>
+<p><a href="https://developer.mozilla.org/en-US/Add-ons/WebExtensions" target="_blank">WebExtensions</a> are becoming the standard for add-on development in Firefox. It will be the only type of extension supported in Firefox by the end of 2017.</p>
 
-      <p>The tool below will tell you which technology your add-on uses and what your options are for staying compatible. A comprehensive collection of <a href="https://wiki.mozilla.org/Add-ons/developer/communication" target="_blank">resources</a> is available to help you through the transition if you are affected.</p>
+      <p>We've compiled a <a href="https://wiki.mozilla.org/Add-ons/developer/communication" target="_blank">list of resources</a> to help you through the transition.</p>
 
       <p>You will need your <b>add-on guid</b>, which is found in one of the following places:</p>
       <ul>
@@ -42,39 +42,37 @@
 
       <div class="answer alert alert-danger" role="alert" id="nope" style="display: none">
          <h3>Sorry</h3>
-         <p>Probably not a valid add-on id. That is the id of one of the applications such as Firefox or Thunderbird and not your add-on.</p>
+         <p>This is not a valid add-on ID. This is the ID of an application, such as Firefox or Thunderbird.</p>
       </div>
 
       <div class="answer alert alert-warning" role="alert" id="sdk" style="display: none">
-        <h3>SDK add-on using low level APIs</h3>
+        <h3>SDK add-on</h3>
         <p>
-            We think this is an SDK add-on that uses <a href="https://developer.mozilla.org/en-US/Add-ons/SDK/Low-Level_APIs" target="_blank">low level APIs</a> that will break with multiprocess Firefox (aka Electrolysis or e10s).
-            <a class="btn btn-primary" href="https://wiki.mozilla.org/Add-ons/developer/communication#1.29_Has_SDK_add-on_using_low_level_APIs">More Information</a>
+            We think this is an SDK add-on. Please take a look at the comparison chart showing <a href="https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Comparison_with_the_Add-on_SDK" target="_blank">SDK APIs and their WebExtensions counterparts</a>. If you don't see the APIs you need to port to WebExtensions, our <a href="https://wiki.mozilla.org/Add-ons/developer/communication#Don.27t_See_the_WebExtensions_APIs_You_Need.3F" target="_blank">wiki page</a> provides more information.
+            <a class="btn btn-primary" href="https://wiki.mozilla.org/Add-ons/developer/communication#Don.27t_See_the_WebExtensions_APIs_You_Need.3F">Go there now</a>
         </p>
       </div>
 
       <div class="answer alert alert-warning" role="alert" id="sdk-legacy" style="display: none">
-        <h3>SDK add-on using legacy APIs</h3>
+        <h3>SDK add-on</h3>
         <p>
-            We think this is an SDK add-on using legacy APIs. These APIs will be deprecated once WebExtensions become the standard for add-on development.
-            <a class="btn btn-primary" href="https://wiki.mozilla.org/Add-ons/developer/communication#2.29_Has_SDK_add-on_using_legacy_APIs">More Information</a>
+            We think this is an SDK add-on. Please take a look at the comparison chart showing <a href="https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Comparison_with_the_Add-on_SDK" target="_blank">SDK APIs and their WebExtensions counterparts</a>. If you don't see the APIs you need to port to WebExtensions, our <a href="https://wiki.mozilla.org/Add-ons/developer/communication#Don.27t_See_the_WebExtensions_APIs_You_Need.3F" target="_blank">wiki page</a> provides more information.
+            <a class="btn btn-primary" href="https://wiki.mozilla.org/Add-ons/developer/communication#Don.27t_See_the_WebExtensions_APIs_You_Need.3F">Go there now</a>
         </p>
       </div>
 
       <div class="answer alert alert-warning" role="alert" id="sdk-high" style="display: none">
-        <h3>SDK add-on using high level APIs</h3>
-        <p>We think this is an SDK add-on using <a href="https://developer.mozilla.org/en-US/Add-ons/SDK/High-Level_APIs" target="_blank">high level APIs</a>. Your add-on will probably continue to work without problems, but we recommend you start looking into WebExtensions.</p>
-
-        <p>Also, please note that as of March 2016, SDK add-ons that were built using the cfx tool (Jetpack version 1.17 and lower) need to be repackaged using the <a href="https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/cfx_to_jpm" target="_blank">newer jpm tool</a> in order to continue being compatible with Firefox.
-            <a class="btn btn-primary" href="https://wiki.mozilla.org/Add-ons/developer/communication#3.29_Has_SDK_add-on_using_only_high_level_SDKs">More Information</a>
+        <h3>SDK add-on</h3>
+        <p>We think this is an SDK add-on. Please take a look at the comparison chart showing <a href="https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Comparison_with_the_Add-on_SDK" target="_blank">SDK APIs and their WebExtensions counterparts</a>. If you don't see the APIs you need to port to WebExtensions, our <a href="https://wiki.mozilla.org/Add-ons/developer/communication#Don.27t_See_the_WebExtensions_APIs_You_Need.3F" target="_blank">wiki page</a> provides more information.
+            <a class="btn btn-primary" href="https://wiki.mozilla.org/Add-ons/developer/communication#Don.27t_See_the_WebExtensions_APIs_You_Need.3F">Go there now</a>
         </p>
       </div>
 
       <div class="answer alert alert-warning" role="alert" id="xul" style="display: none">
         <h3>XUL or XPCOM add-on</h3>
         <p>
-            We think this add-on is using XUL or XPCOM. We recommend that you start looking into the SDK or WebExtensions as soon as possible.
-            <a class="btn btn-primary" role="button" href="https://wiki.mozilla.org/Add-ons/developer/communication#4.29_Has_XUL_or_XPCOM_add-on">More Information</a>
+            We think this add-on is using XUL or XPCOM. Please take a look at the comparison chart showing <a href="https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Comparison_with_XUL_XPCOM_extensions" target="_blank">XUL/XPCOM APIs and their WebExtensions counterparts</a>. If you don't see the APIs you need to port to WebExtensions, our <a href="https://wiki.mozilla.org/Add-ons/developer/communication#Don.27t_See_the_WebExtensions_APIs_You_Need.3F" target="_blank">wiki page</a> provides more information.
+            <a class="btn btn-primary" href="https://wiki.mozilla.org/Add-ons/developer/communication#Don.27t_See_the_WebExtensions_APIs_You_Need.3F">Go there now</a>
         </p>
       </div>
 
@@ -82,7 +80,7 @@
         <h3>Not Found</h3>
         <p>
             We couldn't find your add-on id in our list of add-ons. That just means that we haven't explicitly looked it up for compatibility.
-            <a class="btn btn-primary" role="button" href="https://wiki.mozilla.org/Add-ons/developer/communication#Developers_who_are_affected_by_the_changes">More Information</a>
+            <a class="btn btn-primary" role="button" href="https://wiki.mozilla.org/Add-ons/developer/communication">More Information</a>
         </p>
       </div>
 
